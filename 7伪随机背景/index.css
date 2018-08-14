@@ -1,0 +1,27 @@
+.box {
+  height: 100px;
+  /* width: 200px; */
+  margin: 50px;
+  color: #fff;
+}
+/* 
+  三个图层叠加形成伪随机背景
+  核心在于background-size中的数值选择
+  这里的重复单元就是size中数值的最小公倍数
+  bg1中每80px就会形成一个重复单元
+*/
+.bg1 {
+  background: hsl(20, 40%, 90%);
+  background-image: linear-gradient(90deg, #fb3 11px, transparent 0),
+    linear-gradient(90deg, #ab4 23px, transparent 0),
+    linear-gradient(90deg, #655 23px, transparent 0);
+  background-size: 80px 100%, 40px 100%, 20px 100%;
+}
+/* bg2中每 83 * 61 * 41 = 207583px 才会形成一个重复单元 */
+.bg2 {
+  background: hsl(20, 40%, 90%);
+  background-image: linear-gradient(90deg, #fb3 11px, transparent 0),
+    linear-gradient(90deg, #ab4 23px, transparent 0),
+    linear-gradient(90deg, #655 23px, transparent 0);
+  background-size: 83px 100%, 61px 100%, 41px 100%;
+}

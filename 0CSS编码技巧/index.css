@@ -1,0 +1,65 @@
+/* 版本1 */
+/* button {
+  padding: 6px 16px;
+  border: 1px solid #446d88;
+  background: #58a linear-gradient(#77a0bb, #58a);
+  border-radius: 4px;
+  box-shadow: 0 1px 5px gray;
+  color: white;
+  text-shadow: 0 -1px 1px #335166;
+  font-size: 20px;
+  line-height: 30px;
+} */
+
+/* 版本2 修改字号和行高 */
+/* button {
+  padding: 6px 16px;
+  border: 1px solid #446d88;
+  background: #58a linear-gradient(#77a0bb, #58a);
+  border-radius: 4px;
+  box-shadow: 0 1px 5px gray;
+  color: white;
+  text-shadow: 0 -1px 1px #335166;
+  font-size: 20px;
+  line-height: 1.5;
+} */
+
+/* 字号根据父级变化 */
+/* button {
+  padding: 6px 16px;
+  border: 1px solid #446d88;
+  background: #58a linear-gradient(#77a0bb, #58a);
+  border-radius: 4px;
+  box-shadow: 0 1px 5px gray;
+  color: white;
+  text-shadow: 0 -1px 1px #335166;
+  font-size: 120%;
+  line-height: 1.5;
+} */
+
+/* 修改所有单位为em */
+button {
+  padding: .3em .8em;
+  border: 1px solid rgba(0, 0, 0, .5);
+  background: #58a linear-gradient(hsla(0, 0%, 100%, .2), transparent);
+  border-radius: .2em;
+  box-shadow: 0 .05em 0.25em rgba(0, 0, 0, .5);
+  color: white;
+  text-shadow: 0 -.05em .05em rgba(0, 0, 0, .5);
+  font-size: 120%;
+  line-height: 1.5;
+  position: relative;
+}
+
+/* button::before {
+  content: "";
+  position: absolute;
+  top: -.4em;
+  left: 1em;
+  padding: .35em;
+  background: inherit;
+  border: inherit;
+  border-right: 0;
+  border-bottom: 0;
+  transform: rotate(45deg);
+} */

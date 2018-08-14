@@ -1,0 +1,26 @@
+.box {
+  height: 100px;
+  width: 200px;
+  margin: 50px;
+  color: #fff;
+}
+
+.inner-border1 {
+  background: tan;
+  border-radius: 0.8em;
+  padding: 1em;
+  outline: 10px solid #655;
+}
+
+/* 
+  outline不会贴边，box-shadow会
+  这里的box-shadow只用于填充outline和border-radius之间的空白部分
+  宽度必须大于 (根号2 - 1) * radius，且小于outline的半径
+*/
+.inner-border2 {
+  background: tan;
+  border-radius: 0.8em;
+  padding: 1em;
+  box-shadow: 0 0 0 0.4em #655;
+  outline: 0.6em solid #655;
+}

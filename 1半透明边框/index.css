@@ -1,0 +1,13 @@
+/* 边框的背景色任然是myTest的背景色，并非外层的背景色 */
+.myTest {
+  border: 10px solid hsla(0, 0%, 100%, 0.5);
+  margin: 20px;
+  padding: 30px;
+  background: blue;
+  position: absolute;
+}
+
+/* 使用background-clip裁剪背景的区域，默认为border-box，使用边框的外延框裁剪 */
+.fix {
+  background-clip: padding-box;
+}

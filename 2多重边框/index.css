@@ -1,0 +1,55 @@
+.box {
+  height: 100px;
+  width: 200px;
+  background-color: yellowgreen;
+  margin: 50px;
+}
+
+.border {
+  border: 10px solid #655;
+}
+/* 使用box-shadow的第四个属性增大投影的扩张面积，效果与使用border一致 */
+.shadow1 {
+  box-shadow: 0 0 0 10px #655;
+}
+
+/* 
+  使用margin修复外扩边框，使用padding修复内嵌边框，使效果与border完全一致 
+  60px = 50px + 10px(shadow的大小)
+*/
+.fix {
+  margin: 60px;
+}
+
+/* box-shadow可以有多个投影参数，第二层需要加上第一层的值 15px = 5px + 10px */
+.shadow2 {
+  box-shadow: 0 0 0 10px #655, 0 0 0 15px deeppink;
+}
+/* 还可以加阴影 */
+.shadow3 {
+  box-shadow: 0 0 0 10px #655, 0 0 0 15px deeppink, 0 2px 5px 15px rgba(0, 0, 0, 0.6);
+}
+/* outline只能加一层边框 */
+.outline {
+  border: 10px solid #655;
+  outline: 5px solid deeppink;
+}
+
+/* outline-offset可以控制元素边缘之间的间距 */
+.offset {
+  outline-offset: -15px;
+}
+
+/* 方便的缝边效果 */
+.test {
+  padding: 10px;
+  outline: 1px dashed #fff;
+  outline-offset: -10px;
+}
+
+/* 如果border使用了radius，outline仍然是矩形，box-shadow可以正常使用 */
+.radius {
+  border: 10px solid #655;
+  border-radius: 10px;
+  outline: 5px solid deeppink;
+}

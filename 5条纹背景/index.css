@@ -1,0 +1,49 @@
+.box {
+  height: 100px;
+  /* width: 200px; */
+  margin: 50px;
+  color: #fff;
+}
+/*
+  当两个渐变色的色标极为接近时，就不再有过渡色
+  使用background-size调整大小，背景默认情况下是重复平铺的，就形成了重复的条纹
+  为了避免每次修改都调整多个值，把第二个色标设为0时，位置会自动调整为上一个色标的位置值
+*/
+.gradient1 {
+  background: linear-gradient(#fb3 30%, #58a 0, #58a 90%, red 0);
+  background-size: 100% 30px;
+}
+/* 修改渐变方向和background-size的值，变成垂直的渐变 */
+.gradient2 {
+  background: linear-gradient(to right, #fb3 30%, #58a 0, #58a 90%, red 0);
+  background-size: 30px 100%;
+}
+/* 修改为斜向的条纹，需要写两遍，才能使条纹重合，并且宽度为 42px = 30px * 根号2 */
+.gradient3 {
+  background: linear-gradient(
+    45deg,
+    #fb3 15%,
+    #58a 0,
+    #58a 45%,
+    red 0,
+    red 50%,
+    #fb3 0,
+    #fb3 65%,
+    #58a 0,
+    #58a 95%,
+    red 0
+  );
+  background-size: 42px 42px;
+}
+/* 使用repeating-linear-gradient绘制条纹，更加方便,而且能变化其他状态 */
+.gradient4 {
+  background: repeating-linear-gradient(
+    70deg,
+    #fb3 0,
+    #fb3 9px,
+    #58a 0,
+    #58a 27px,
+    red 0,
+    red 30px
+  );
+}

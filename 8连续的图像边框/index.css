@@ -1,0 +1,124 @@
+.box {
+  height: 100px;
+  /* width: 200px; */
+  margin: 50px;
+  color: #fff;
+}
+
+.img {
+  border: 10px solid transparent;
+  background: url(stone-art.jpg);
+  background-size: cover;
+  background-origin: border-box;
+}
+
+/* 将图片9等分，然后平铺上去 */
+.border1 {
+  border: 10px solid transparent;
+  border-image: 33.3% url(stone-art.jpg) stretch;
+  background: yellowgreen;
+}
+
+/* padding-box显示白色图片,border-box显示图片
+  但是background-origin默认是padding-box，导致图片从padding开始裁剪，导致图片不连贯
+*/
+.border2 {
+  color: #000;
+  padding: 1em;
+  border: 1em solid transparent;
+  background: linear-gradient(white, white), url(stone-art.jpg);
+  background-size: cover;
+  background-clip: padding-box, border-box;
+}
+
+.border3 {
+  color: #000;
+  padding: 1em;
+  border: 1em solid transparent;
+  background: linear-gradient(white, white), url(stone-art.jpg);
+  background-size: cover;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+}
+
+.border3 {
+  color: #000;
+  padding: 1em;
+  border: 1em solid transparent;
+  background: linear-gradient(white, white) padding-box, url(stone-art.jpg) border-box 0 0 / cover;
+}
+
+/* 用上面的原理形成信封 */
+.border4 {
+  color: #000;
+  padding: 1em;
+  border: 1em solid transparent;
+  background: linear-gradient(white, white) padding-box,
+    repeating-linear-gradient(
+        -45deg,
+        red 0,
+        red 12.5%,
+        transparent 0,
+        transparent 25%,
+        #58a 0,
+        #58a 37.5%,
+        transparent 0,
+        transparent 50%
+      )
+      0 / 6em 6em;
+}
+
+/* 用border-image生成信封 */
+.border5 {
+  color: #000;
+  padding: 1em;
+  border: 1em solid transparent;
+  border-image: 16
+    repeating-linear-gradient(
+      -45deg,
+      red 0,
+      red 1em,
+      transparent 0,
+      transparent 2em,
+      #58a 0,
+      #58a 3em,
+      transparent 0,
+      transparent 4em
+    );
+  border-image-slice: 20;
+}
+
+@keyframes ants {
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+.border6 {
+  color: #000;
+  padding: 1em;
+  border: 1px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+    repeating-linear-gradient(-45deg, black 0, black 25%, transparent 0, transparent 50%) 0 / 0.6em
+      0.6em;
+}
+
+.animation {
+  animation: ants 12s linear infinite;
+}
+
+.footnote {
+  color: #000;
+  border-top: 0.15em solid transparent;
+  border-image: 100% 0 0 linear-gradient(90deg, currentColor 4em, transparent 0);
+  padding-top: 0.5em;
+}
+
+.border7 {
+  border: 15px solid transparent;
+  padding: 15px;
+  border-image: url(border2.png);
+  border-image-repeat: round;
+  border-image-slice: 100% 0 0;
+  color: #000;
+}

@@ -1,0 +1,29 @@
+.box {
+  height: 100px;
+  width: 200px;
+  margin: 50px;
+  color: #fff;
+}
+/* background-position的拓展属性可以很方便地定位背景图片位置 */
+.position1 {
+  background: url(all.svg) no-repeat #58a;
+  background-position: right 20px bottom 20px;
+}
+/* 如果浏览器不支持拓展属性，默认会贴在左上角，这里提供一个回退方案，变为贴在右下角 */
+.position2 {
+  background: url(all.svg) no-repeat#58a bottom right;
+  /* background-position: right 20px bottom 20px; */
+}
+/* 如果想要图片的位置与padding保持一致，并且不需要修改多个地方，
+可以修改background-origin属性，从padding-box变为content-box */
+.position3 {
+  padding: 20px;
+  background: url(all.svg) no-repeat #58a bottom right;
+  background-origin: content-box;
+}
+
+/* 使用calc计算从左上角开始的值，注意运算符左右需要加空格 */
+.position4 {
+  background: url(all.svg) no-repeat#58a;
+  background-position: calc(100% - 20px) calc(100% - 20px);
+}
