@@ -1,0 +1,54 @@
+.box {
+  height: 50px;
+  width: 200px;
+  margin: 50px;
+  background: #58a;
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+}
+
+.block1 {
+  transform: skewx(-45deg);
+}
+/* 使用嵌套，使文字不变形 */
+.block1 div {
+  transform: skewX(45deg);
+}
+
+.block2 {
+  /* 背景使用伪元素 */
+  background: unset;
+  position: relative;
+}
+/* 变形一个元素而不想变形它的内容时可以考虑使用伪元素 */
+.block2::before {
+  background: #fb3;
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* 防止伪元素阻挡方块 */
+  z-index: -1;
+  transform: skewX(-45deg);
+}
+
+.block3 {
+  position: relative;
+  border-radius: 6px;
+}
+/* 变形一个元素而不想变形它的内容时可以考虑使用伪元素 */
+.block3::before {
+  background: #fb3;
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: -10px;
+  /* 防止伪元素阻挡方块 */
+  z-index: -1;
+}

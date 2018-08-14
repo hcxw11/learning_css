@@ -1,0 +1,54 @@
+.box {
+  height: 100px;
+  /* width: 200px; */
+  margin: 50px;
+  background: #fb3;
+  color: #fff;
+}
+
+/* 使用一半的高度/宽度作为半径 */
+.circle1 {
+  border-radius: 50px;
+}
+.circle1 div {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  border: 1px dashed #000;
+  box-sizing: border-box;
+}
+
+/* 单独指定水平和垂直半径，使用 / 分隔，前面是水平半径，后面是垂直半径 */
+.circle2 {
+  border-radius: 50px / 25px;
+}
+.circle2 div {
+  height: 50px;
+  width: 100px;
+  border-radius: 50px / 25px;
+  border: 1px dashed #000;
+  box-sizing: border-box;
+}
+
+/* 使用百分比形成自适应的半径 */
+.circle3 {
+  border-radius: 50% / 50%;
+}
+
+/* 可以简写成如下 */
+.circle3 {
+  border-radius: 50%;
+}
+/* 分别设置四个角落的水平和垂直半径 */
+.circle4 {
+  border-radius: 50% / 100% 100% 0 0;
+}
+
+.circle5 {
+  border-radius: 100% 0 0 100% / 50%;
+}
+
+.circle6 {
+  /* border-radius: 100% 0 0 0 / 100% 0 0 0; */
+  border-radius: 100% 0 0 0;
+}

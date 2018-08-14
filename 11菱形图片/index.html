@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+</head>
+
+<body>
+  <pre>
+    边框用虚线表示
+    图片的width为100%，即外部div的宽度。大小不够导致图片变为八边形
+  </pre>
+  <div class="box block1">
+    <img src="image.jpeg" alt="" />
+  </div>
+  <pre>
+    修改图片的宽度为对角线的长度，即100% * 根号2
+    因为width放大是以左上角为原点放大，需要并向上平移 (142% - 100%) / 2 的距离
+  </pre>
+  <div class="box block2">
+    <img src="image.jpeg" alt="" />
+  </div>
+  <pre>
+    使用scale缩放图片，以图片的中心点进行缩放(中心点通过transform-origin修改)
+  </pre>
+  <div class="box block3">
+    <img src="image.jpeg" alt="" />
+  </div>
+  <pre>
+    以上方式仅对于非正方形图片，会有问题
+  </pre>
+  <div class="box block3">
+    <img src="stone-art.jpg" alt="" />
+  </div>
+  <pre>
+    使用clip-path进行裁剪
+    语法类似于svg，不再需要外部再套一层div
+    注意：ie和edge存在兼容性问题（没有裁剪的效果）
+  </pre>
+  <img class="box block4" src="image.jpeg" alt="" />
+  <pre>
+    可以很好地适应非正方形
+  </pre>
+  <img class="box block4" src="stone-art.jpg" alt="" />
+  <pre>
+    另外使用clip-path可以很方便地增加动画效果
+    hover上去看看
+  </pre>
+  <img class="box block5" src="stone-art.jpg" alt="" />
+  <pre>
+    这里动画的限制是必须在同一个种形状函数中(这里是polygon())，且点的数量相同
+    否则动画效果会失效
+  </pre>
+  <pre>
+    由此引申，形状可以是inset(), circle(), ellipse(), polygon()
+    详细参数参照<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/clip-path">clip-path</a>
+  </pre>
+  <img class="box block6" src="stone-art.jpg" alt="" />
+</body>
+
+</html>

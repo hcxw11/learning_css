@@ -1,0 +1,69 @@
+.box {
+  height: 200px;
+  width: 200px;
+  margin: 100px 50px;
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+  border: 1px dashed #aaa;
+}
+
+.block1 {
+  transform: rotate(45deg);
+  overflow: hidden;
+}
+/* 因为图片的宽度100%是div的宽度，导致图片变成八边形 */
+.block1 img {
+  width: 100%;
+  transform: rotate(-45deg);
+}
+
+.block2 {
+  transform: rotate(45deg);
+  overflow: hidden;
+}
+/* 
+  修改图片的宽度为对角线的长度，即100% * 根号2,
+  因为width放大是以左上角为原点放大，需要并向上平移 (142% - 100%) / 2 的距离
+*/
+.block2 img {
+  width: 142%;
+  transform: rotate(-45deg) translateY(-21%);
+}
+
+.block3 {
+  transform: rotate(45deg);
+  overflow: hidden;
+}
+
+.block3 img {
+  width: 100%;
+  transform: rotate(-45deg) scale(1.42);
+}
+/* 使用clip-path进行裁剪,语法类似于svg，不再需要外部再套一层div */
+.block4 {
+  width: 284px;
+  height: 284px;
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.block5 {
+  width: 284px;
+  height: 284px;
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  transition: 1s all;
+}
+/* 注意类型和点的数量要相同 */
+.block5:hover {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.block6 {
+  width: 284px;
+  height: 284px;
+  clip-path: circle(40%);
+  transition: 1s all;
+}
+.block6:hover {
+  clip-path: circle(100%);
+}
