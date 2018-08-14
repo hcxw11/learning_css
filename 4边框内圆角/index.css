@@ -15,7 +15,7 @@
 /* 
   outline不会贴边，box-shadow会
   这里的box-shadow只用于填充outline和border-radius之间的空白部分
-  宽度必须大于 (根号2 - 1) * radius，且小于outline的半径
+  宽度必须大于 (√2 - 1) * radius，且小于outline的半径
 */
 .inner-border2 {
   background: tan;

@@ -18,7 +18,7 @@
   background: linear-gradient(to right, #fb3 30%, #58a 0, #58a 90%, red 0);
   background-size: 30px 100%;
 }
-/* 修改为斜向的条纹，需要写两遍，才能使条纹重合，并且宽度为 42px = 30px * 根号2 */
+/* 修改为斜向的条纹，需要写两遍，才能使条纹重合，并且宽度为 42px = 30px * √2 */
 .gradient3 {
   background: linear-gradient(
     45deg,

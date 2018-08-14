@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+</head>
+
+<body>
+  <pre>
+    1. 使用渐变linear-gradient实现切角效果
+  </pre>
+  <div class="box block1"></div>
+  <pre>
+    拆成两个渐变区域
+  </pre>
+  <div class="box block2"></div>
+  <pre>
+    拆成四个渐变区域
+  </pre>
+  <div class="box block3"></div>
+  <pre>
+    使用radial-gradient，变为弧形切角
+  </pre>
+  <div class="box block4"></div>
+  <pre>
+    2. 使用border-image + svg
+  </pre>
+  <div class="box block5"></div>
+  <pre>
+    可以看到这里的切角变小了
+    因为渐变的大小是渐变方向上的大小，而border上的大小是水平或者垂直的
+    这导致切角的大小变为 15px / √2 = 10.5px
+    为了保证切角的大小，修改border大小为 15px * √2 = 21px
+  </pre>
+  <div class="box block5 size"></div>
+  <pre>
+    增加背景：
+    border-image-slice增加fill属性
+      或者
+    background 
+  </pre>
+  <div class="box block5 size bg">asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasd</div>
+  <pre>
+    3. 使用裁剪路径方案(clip-path)
+    IE和edge有兼容性问题
+  </pre>
+  <div class="box block6"></div>
+  <pre>
+    这种方式最大的好处就是背景可以是自定义的图片
+  </pre>
+  <div class="box block7"></div>
+  <pre>
+    如果没有提供足够的padding,div中的文字会被裁剪，使用border-image则不会
+  </pre>
+  <div class="box block7">asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasd</div>
+</body>
+
+</html>
