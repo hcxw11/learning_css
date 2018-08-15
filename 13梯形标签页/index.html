@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+</head>
+
+<body>
+  <pre>
+    对照图形
+  </pre>
+  <div class="box">
+    <div></div>TRAPEZOID
+  </div>
+  </div>
+  <pre>
+    使用3d旋转+透视生成梯形
+    内部的文字也发生了变形，使用反向变形恢复原样
+  </pre>
+  <div class="box block1">
+    <div>TRAPEZOID</div>
+  </div>
+  <pre>
+    使用伪元素生成外部的梯形,不用担心内部文字变形
+    因为transform-origin没有正确设置
+    梯形的宽度边长了，高度变小，位置也发生了变化
+  </pre>
+  <div class="box block2">
+    <div>TRAPEZOID</div>
+  </div>
+  <pre>
+    使用 transform-origin: bottom
+    当3d旋转时，可以把底部固定住
+    但是高度还是不对
+  </pre>
+  <div class="box block2 origin">
+    <div>TRAPEZOID</div>
+  </div>
+  <pre>
+    可以通过增加内边距来增加高度，
+    但是当浏览器不支持3d变形的时候，就会看起很奇怪
+    这里可以使用scale()来变形
+    这样如果不支持3d变形，所有的变形都会被丢弃
+  </pre>
+  <div class="box block2 origin size">
+    <div>TRAPEZOID</div>
+  </div>
+  <pre>
+    去除多余的样式
+  </pre>
+  <div class="box block2 origin size fix">
+    <div>TRAPEZOID</div>
+  </div>
+  <pre>
+    伪元素最大的好处就是可以自由地增加样式
+  </pre>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#" class="selected">Projects</a>
+    <a href="#">About</a>
+  </nav>
+  <main>
+    Content area
+  </main>
+  <pre>
+      如果需要左右倾斜
+      使用对transform-origin增加left或者right即可
+  </pre>
+  <nav class="left">
+    <a href="#">Home</a>
+    <a href="#" class="selected">Projects</a>
+    <a href="#">About</a>
+  </nav>
+  <main>
+    Content area
+  </main>
+
+  <nav class="right">
+    <a href="#">Home</a>
+    <a href="#" class="selected">Projects</a>
+    <a href="#">About</a>
+  </nav>
+  <main>
+    Content area
+  </main>
+  <pre>
+    这种方式最大的问题是，倾斜的角度依赖元素的宽度
+  </pre>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#" class="selected">Projects</a>
+    <a href="#">About111111111111111111111111111111111111111111111</a>
+  </nav>
+  <main>
+    Content area
+  </main>
+  <pre>
+    如果宽度差距较大的话，斜度需要特殊地调节
+    
+  </pre>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#" class="selected">Projects</a>
+    <a href="#" class="change">About111111111111111111111111111111111111111111111</a>
+  </nav>
+  <main>
+    Content area
+  </main>
+</body>
+
+</html>
