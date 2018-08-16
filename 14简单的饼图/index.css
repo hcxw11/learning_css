@@ -1,0 +1,161 @@
+.box {
+  height: 200px;
+  width: 200px;
+  margin: 50px;
+  color: #fff;
+  border-radius: 50%;
+  background: #655;
+}
+
+.pie1 {
+  background-image: linear-gradient(to right, transparent 50%, yellowgreen 0);
+}
+
+/* 增加伪类 */
+.overflow::before {
+  content: '';
+  display: block;
+  margin-left: 50%;
+  height: 100%;
+  /* 显示伪类的边界 */
+  border: 1px dashed #000;
+}
+
+/* 给伪类增加颜色，圆角，修改旋转中心点 */
+.value::before {
+  background-color: inherit;
+  transform-origin: 0 50%;
+  border-radius: 0 100% 100% 0 / 50%;
+}
+
+/* 旋转伪类45度 */
+.rotate::before {
+  transform: rotate(0.25turn);
+}
+
+/* 显示另外一半的遮罩 */
+.other::before {
+  background-color: yellowgreen;
+}
+
+/* 旋转的动画 */
+@keyframes spin {
+  to {
+    transform: rotate(0.5turn);
+  }
+}
+
+/* 修改颜色的动画 */
+@keyframes bg {
+  50% {
+    background: yellowgreen;
+  }
+}
+
+/* 增加一个动画效果 */
+.animation::before {
+  animation: spin 3s linear infinite, bg 6s step-end infinite;
+}
+
+/* 整合上面的代码 */
+.pie2 {
+  height: 200px;
+  width: 200px;
+  margin: 50px;
+  border-radius: 50%;
+  background: #655;
+  background-image: linear-gradient(to right, transparent 50%, yellowgreen 0);
+}
+
+/* 整合上面的代码 */
+.pie2::before {
+  content: '';
+  display: block;
+  margin-left: 50%;
+  height: 100%;
+  background-color: inherit;
+  transform-origin: 0 50%;
+  border-radius: 0 100% 100% 0 / 50%;
+  /* 这里为了方便计算把动画时间设置为100s，动画是暂停的并不会有副作用 */
+  /* 动画时间后面增加小数是为了防止显示100%的比率时，突然变回0%的比率 */
+  animation: spin 50.0001s linear infinite, bg 100.0001s step-end infinite;
+  /* 暂停 */
+  animation-play-state: paused;
+  /* 使用.pie2元素上内联设置的animation-delay */
+  animation-delay: inherit;
+}
+
+.slider {
+  margin-left: 50px;
+}
+
+/* 
+  ********************* svg 相关* ********************
+*/
+
+.svg {
+  height: 200px;
+  width: 200px;
+  margin: 50px;
+}
+
+.circle {
+  fill: #655;
+  stroke: yellowgreen;
+  stroke-width: 30;
+}
+
+.dasharray {
+  stroke-dasharray: 30 10;
+}
+.dasharray2 {
+  stroke-dasharray: 0 314;
+}
+
+.dasharray3 {
+  stroke-dasharray: 78.5 314;
+}
+
+.dasharray4 {
+  stroke-dasharray: 235.5 314;
+}
+
+.circle2 {
+  fill: #655;
+  stroke: yellowgreen;
+  stroke-width: 100;
+}
+
+.bg {
+  background: #655;
+  border-radius: 50%;
+  transform: rotate(-90deg);
+}
+
+@keyframes stroke-change {
+  form {
+    stroke-dasharray: 0 314;
+  }
+  to {
+    stroke-dasharray: 314 314;
+  }
+}
+
+.svg-animation {
+  stroke-dasharray: 0 314;
+  animation: stroke-change 6s linear infinite;
+}
+
+.circle3 {
+  fill: #655;
+  stroke: yellowgreen;
+  stroke-width: 32;
+  /* 形成30比率的饼图 */
+  stroke-dasharray: 30 100;
+}
+
+.circle4 {
+  fill: #655;
+  stroke: yellowgreen;
+  stroke-width: 32;
+}

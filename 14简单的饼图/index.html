@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+</head>
+
+<body>
+  <pre>
+    使用 transform+伪类 的方式显示饼图
+    首先是一个背景板
+  </pre>
+  <div class="box"></div>
+
+
+  <pre>
+    用简单的线性渐变产生一个左右分隔的饼图
+  </pre>
+  <div class="box pie1"></div>
+
+
+  <pre>
+    增加伪类，边界用虚线框表示
+  </pre>
+  <div class="box pie1 overflow"></div>
+
+
+  <pre>
+    给伪类增加颜色，圆角，修改旋转中心点
+  </pre>
+  <div class="box pie1 overflow value"></div>
+
+
+  <pre>
+    旋转伪类90°
+    伪类就只会阻挡部分的绿色区域，拼凑出90°的圆
+    旋转单位：90deg = 100grad = 0.25turn ≈ 1.570796326794897rad
+    但是现在只能显示0~180°的圆
+  </pre>
+  <div class="box pie1 overflow value rotate"></div>
+
+
+  <pre>
+    当度数大于180°时可以设置伪类的颜色为绿色
+    这样就可以正常地显示270°的饼图了
+  </pre>
+  <div class="box pie1 overflow value rotate other"></div>
+
+
+  <pre>
+    将旋转和修改颜色整合在一起
+  </pre>
+  <div class="box pie1 overflow value animation"></div>
+
+
+  <pre>
+    下面通过html直接生成一个静态的拼图
+    因为内联样式无法对伪类进行控制，不能简单地设置内联样式的来固定显示比例。
+    这里使用负值的animation-delay来直接跳至动画中的任意时间。
+    比如我们设置animation-duration为10s，animation-delay为-2s，饼图就能显示出20%的比率。
+    把之前的代码整合在一起
+  </pre>
+  <div class="pie2" style="animation-delay: -20s">20%</div>
+  <div class="pie2" style="animation-delay: -80s">80%</div>
+
+
+  <pre>
+    使用js修改内联样式
+  </pre>
+  <div id="pie" class="pie2">0%</div>
+  <input type="range" min="0" max="100" value="0" class="slider" id="myRange">
+
+  <pre>
+    svg解决方案
+    首先画一个svg圆形，有一道绿色的描边
+  </pre>
+  <svg class="svg">
+    <circle r="50" cx="100" cy="100" class="circle" />
+  </svg>
+
+
+  <pre>
+    描边有一个stroke-dasharray的属性
+    下面使用了stroke-dasharray: 30 10;
+    代表线段长度30，间隔长度10
+  </pre>
+  <svg class="svg">
+    <circle r="50" cx="100" cy="100" class="circle dasharray" />
+  </svg>
+
+
+  <pre>
+    如果把线段长度变成比率，间隔大于一个周长，就可以显示对应的比率
+    比如这里周长  = 2 * π * 50 ≈ 314
+  </pre>
+  <pre>
+      0°   stroke-dasharray: 0 314;
+  </pre>
+  <svg class="svg">
+    <circle r="50" cx="100" cy="100" class="circle dasharray2" />
+  </svg>
+  <pre>
+      90°   stroke-dasharray: 110 314;
+  </pre>
+  <svg class="svg">
+    <circle r="50" cx="100" cy="100" class="circle dasharray3" />
+  </svg>
+  <pre>
+      270°   stroke-dasharray: 330 314;
+  </pre>
+  <svg class="svg">
+    <circle r="50" cx="100" cy="100" class="circle dasharray4" />
+  </svg>
+
+
+  <pre>
+    当svg圆的半径被描边完全覆盖的时候，就非常接近饼图了
+  </pre>
+  <svg class="svg">
+    <circle r="50" cx="100" cy="100" class="circle2 dasharray3" />
+  </svg>
+
+
+  <pre>
+    再在下面加一个圆形的背景，以及旋转图像90°，使得饼图从顶点开始
+  </pre>
+  <svg class="svg bg">
+    <circle r="50" cx="100" cy="100" class="circle2 dasharray3" />
+  </svg>
+
+
+  <pre>
+    因为这里的比率使用stroke-dasharray控制
+    所以只需要对stroke-dasharray进行变化就能形成之前的css动画
+  </pre>
+  <svg class="svg bg">
+    <circle r="50" cx="100" cy="100" class="circle2 svg-animation" />
+  </svg>
+
+  <pre>
+    继续优化，我们可以制定一个特定的半径，让周长无限接近100，这样就不用计算了
+    r = 100 / ( 2 * π ) ≈ 16 
+    使用16并不能正确显示100%的比率，如果有要求可以更加精确
+    使用viewBox，使图像能自适应大小
+  </pre>
+  <svg viewBox="0 0 32 32" class="svg bg">
+    <circle r="16" cx="16" cy="16" class="circle3" />
+  </svg>
+
+
+  <pre>
+    下面结合js，自动通过html中的数值生成饼图
+  </pre>
+  <div class="svg-pie">20%</div>
+  <div class="svg-pie">60%</div>
+  <div id="svg-pie" class="svg-pie">0%</div>
+  <input type="range" min="0" max="100" value="0" class="slider" id="svg-range">
+</body>
+<script>
+  var slider = document.getElementById("myRange");
+  var slider2 = document.getElementById('svg-range')
+  var pie = document.getElementById("pie");
+  var svgPie = document.getElementById("svg-pie");
+  slider.oninput = function (e) {
+    pie.innerHTML = e.target.value + '%';
+    pie.style.animationDelay = '-' + e.target.value + 's';
+  }
+
+  slider2.oninput = function (e) {
+    createSvgPie(svgPie, e.target.value);
+  }
+
+  function $$(selector, context) {
+    context = context || document;
+    var elements = context.querySelectorAll(selector);
+    return Array.prototype.slice.call(elements);
+  }
+
+  $$('.svg-pie').forEach(function (pie) {
+    createSvgPie(pie, pie.textContent)
+  });
+
+  function createSvgPie(dom, rate) {
+    var p = parseFloat(rate);
+    var NS = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(NS, "svg");
+    var circle = document.createElementNS(NS, "circle");
+    var title = document.createElement("div");
+
+    // 指定class
+    svg.classList = "svg bg";
+    circle.classList = "circle4";
+
+    circle.setAttribute("r", 16);
+    circle.setAttribute("cx", 16);
+    circle.setAttribute("cy", 16);
+    circle.setAttribute("stroke-dasharray", p + " 100");
+
+    svg.setAttribute("viewBox", "0 0 32 32");
+    title.innerHTML = p + '%';
+    dom.textContent = '';
+    dom.appendChild(title);
+    svg.appendChild(circle);
+    dom.appendChild(svg);
+  }
+
+</script>
+
+</html>
