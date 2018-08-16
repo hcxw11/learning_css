@@ -1,0 +1,29 @@
+.box {
+  height: 100px;
+  width: 200px;
+  margin: 50px;
+  background: #fb3;
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+}
+
+.block1 {
+  box-shadow: 2px 3px 4px black;
+}
+
+.block2 {
+  box-shadow: 2px 3px 4px -4px black;
+}
+
+.block3 {
+  box-shadow: 0px 7px 4px -4px black;
+}
+
+.block4 {
+  box-shadow: 3px 3px 6px -3px black;
+}
+
+.block5 {
+  box-shadow: 5px 0 5px -5px black, -5px 0 5px -5px black;
+}

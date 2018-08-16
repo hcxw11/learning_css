@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+</head>
+
+<body>
+  <pre>
+    使用svg滤镜
+    svg滤镜可以很方便地增加过渡效果
+  </pre>
+  <pre>
+    原图
+  </pre>
+  <img class="image" src="tiger.jpg" />
+  <pre>
+    sepia()降低饱和度的橙黄色染色效果
+  </pre>
+  <img class="image sepia" src="tiger.jpg" />
+  <pre>
+    saturate()提升饱和度，获得暖黄金的染色效果
+  </pre>
+  <img class="image sepia saturate" src="tiger.jpg" />
+  <pre>
+    hue-rotate()把每个像素的色相偏移
+  </pre>
+  <img class="image sepia saturate hue-rotate" src="tiger.jpg" />
+  <pre>
+    svg滤镜可以很方便地增加过渡效果
+    hover上去看看
+  </pre>
+  <img class="image1" src="tiger.jpg" />
+
+  <pre>
+    使用背景的混合模式
+    1. 图片嵌在容器中
+  </pre>
+  <div class="bg1">
+    <img class="image" src="tiger.jpg" />
+  </div>
+  <pre>
+    2. 不使用img，只有单层的div
+  </pre>
+  <div style="background-image:url(tiger.jpg)" class="bg2"></div>
+</body>
+
+</html>

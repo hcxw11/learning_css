@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+</head>
+
+<body>
+  <pre>
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.5);
+    参数元素的尺寸，画一个rgba(0, 0, 0, 0.5)的矩形
+    向右偏移2px，向下偏移3px
+    进行4px的模糊处理，阴影色和纯透明色之间的过渡大概是模糊半径的2倍（这里是8px）
+    模糊后的背景和元素间的交集会被裁减掉
+  </pre>
+  <div class="box block1"></div>
+
+
+  <pre>
+    如果想只显示单侧的投影可以使用box-shadow的第四个长度参数
+    这个参数会扩大或者缩小投影的尺寸
+    比如 box-shadow: 2px 3px 4px -4px rgba(0, 0, 0, 0.5);
+    因为投影尺寸和缩小尺寸相同，将会看不到投影
+  </pre>
+  <div class="box block2"></div>
+
+
+  <pre>
+    往某个方向偏移量就可以看到单侧的阴影了
+  </pre>
+  <div class="box block3"></div>
+
+
+  <pre>
+    临边投影
+  </pre>
+  <div class="box block4"></div>
+
+
+  <pre>
+    双侧投影
+  </pre>
+  <div class="box block5"></div>
+</body>
+
+</html>

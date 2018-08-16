@@ -1,0 +1,50 @@
+.image {
+  max-width: 640px;
+}
+
+.sepia {
+  filter: sepia();
+}
+
+.saturate {
+  filter: sepia() saturate(4);
+}
+
+.hue-rotate {
+  filter: sepia() saturate(4) hue-rotate(295deg);
+}
+
+.image1 {
+  max-width: 640px;
+  transition: 1s filter, 1s -webkit-filter;
+  -webkit-filter: sepia() saturate(4) hue-rotate(295deg);
+  filter: sepia() saturate(4) hue-rotate(295deg);
+}
+
+.image1:hover,
+.image1:focus {
+  -webkit-filter: none;
+  filter: none;
+}
+
+.bg1 {
+  max-width: 640px;
+  background: hsl(335, 100%, 50%);
+}
+
+.bg1 img {
+  mix-blend-mode: luminosity;
+}
+
+.bg2 {
+  width: 640px;
+  height: 440px;
+  background-size: cover;
+  background-color: hsl(335, 100%, 50%);
+  background-blend-mode: luminosity;
+  transition: 0.5s background-color;
+}
+
+.bg2:hover {
+  background-color: transparent;
+}
