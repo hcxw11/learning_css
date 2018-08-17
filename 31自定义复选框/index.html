@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+</head>
+
+<body>
+  <pre>
+    默认样式
+  </pre>
+  <input type="checkbox" id="awesome" class="input" />
+  <label for="awesome">Awesome!</label>
+  <pre>
+    隐藏复选框
+    display: none 会导致无法使用tab切换
+    这里使用clip来隐藏
+  </pre>
+  <div class="input">
+    <input type="checkbox" id="awesome2" class="hidden" />
+    <label for="awesome2">Awesome!</label>
+  </div>
+
+
+  <pre>
+    使用伪类显示复选框
+  </pre>
+  <div class="input">
+    <input type="checkbox" id="awesome3" class="hidden add-box" />
+    <label for="awesome3">Awesome!</label>
+  </div>
+</body>
+
+</html>

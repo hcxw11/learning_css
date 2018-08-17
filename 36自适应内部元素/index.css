@@ -1,0 +1,30 @@
+figure {
+  padding: 10px;
+  border: 1px solid silver;
+}
+
+.float {
+  float: left;
+}
+
+.display {
+  display: inline-block;
+}
+
+.min {
+  /* 对于不支持的浏览器作为回退方案 */
+  max-width: 300px;
+  /* chrome和safari */
+  max-width: min-content;
+  /* firefox */
+  max-width: -moz-min-content;
+  margin: auto;
+}
+
+.min > img {
+  /* 
+    如果max-width是由内部因素决定，这一条不会生效
+    也就是说只有max-width: 300px时，图片才会按照父元素的属性来
+  */
+  max-width: inherit;
+}

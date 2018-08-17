@@ -1,0 +1,25 @@
+.input {
+  margin-left: 50px;
+}
+
+.hidden {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+.add-box[type='checkbox'] + label::before {
+  content: '\a0';
+  display: inline-block;
+  vertical-align: 0.2em;
+  width: 0.8em;
+  height: 0.8em;
+  margin-right: 0.2em;
+  border-radius: 0.2em;
+  background: silver;
+  text-indent: 0.15em;
+  line-height: 0.65;
+}
+
+.add-box[type='checkbox']:checked + label::before {
+  content: '\2713';
+  background: yellowgreen;
+}

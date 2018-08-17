@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+</head>
+
+<body>
+  <pre>
+    默认table-layout是auto，会自动计算
+  </pre>
+  <div class="box">
+    <table>
+      <tr>
+        <td>If we don’t…</td>
+        <td>指定单元格的宽度，则这些单元格就会根据它们的内容的长短来分配宽度。内容较长的单元格所能分配的宽度比较多.</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td>If we don’t…</td>
+        <td>指定单元格的宽度，则这些单元格就会根据它们的内容的长短来分配宽度。内容较长的单元格所能分配的宽度比较多.</td>
+      </tr>
+      <tr>
+        <td>表格中的每一行都会参与到列长度的计算中，不仅仅是看第一行</td>
+        <td>这个表格的列宽分配结果和上面的那个表格不同.</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td style="width: 300px">设置宽度为<code>300px</code>…</td>
+        <td style="width: 200px">设置宽度为<code>200px</code>. 会按照60%和40%的比例缩小</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td style="width: 700px">设置宽度为<code>700px</code>…</td>
+        <td style="width: 300px">设置宽度为<code>300px</code>. 会按照70%和30%的比例缩小</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td>禁止文本换行.</td>
+        <td class="preformatted">如果我们禁止文本换行行为，那么表格的宽度可能远远超过表格的宽度,而且就算是添加 <code>text-overflow: ellipsis</code> 也没有用,</td>
+      </tr>
+    </table>
+  </div>
+
+
+  <pre>
+
+
+    
+    修改table-layout为fixed
+    如果不指定宽度，各列的宽度平均分配
+  </pre>
+  <div class="box fixed">
+    <table>
+      <tr>
+        <td>If we don’t…</td>
+        <td>指定单元格的宽度，则这些单元格就会根据它们的内容的长短来分配宽度。内容较长的单元格所能分配的宽度比较多.</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td>If we don’t…</td>
+        <td>指定单元格的宽度，则这些单元格就会根据它们的内容的长短来分配宽度。内容较长的单元格所能分配的宽度比较多.</td>
+      </tr>
+      <tr>
+        <td>表格中的每一行都会参与到列长度的计算中，不仅仅是看第一行</td>
+        <td>这个表格的列宽分配结果和上面的那个表格不同.</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td style="width: 300px">设置宽度为<code>300px</code>…</td>
+        <td style="width: 200px">设置宽度为<code>200px</code>. 会按照60%和40%的比例缩小</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td style="width: 700px">设置宽度为<code>700px</code>…</td>
+        <td style="width: 300px">设置宽度为<code>300px</code>. 会按照70%和30%的比例缩小</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td>禁止文本换行.</td>
+        <td class="preformatted">如果我们禁止文本换行行为，那么表格的宽度可能远远超过表格的宽度,而且就算是添加 <code>text-overflow: ellipsis</code> 也没有用,</td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>

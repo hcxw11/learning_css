@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+</head>
+
+<body>
+  <div>
+    <pre>
+      修改布局，使得下面的figure元素能和它所包含的图片一样宽(图片大小不固定)，并且居中
+      这里内部的文字比图片要宽得多，如何让figure的宽度由它内部的图片决定，而不是由它的父元素决定
+    </pre>
+    <p>Let’s assume we have some text here. Bacon ipsum dolor sit amet turkey veniam shankle, culpa short ribs kevin t-bone
+      occaecat.
+    </p>
+    <figure>
+      <img src="adamcatlace.jpg" />
+      <figcaption>
+        The great Sir Adam Catlace was named after Countess Ada Lovelace, the first programmer ever.
+      </figcaption>
+    </figure>
+    <p>We also have some more text here. Et laborum venison nostrud, ut veniam sint kielbasa ullamco pancetta.</p>
+
+  </div>
+
+  <div>
+    <pre>
+
+
+      1. 对figure使用float布局
+      得到的宽度和我们预期的不一样
+      而且使用float修改了布局模式，往往会导致很多意想不到的情况发生
+    </pre>
+    <p>Let’s assume we have some text here. Bacon ipsum dolor sit amet turkey veniam shankle, culpa short ribs kevin t-bone
+      occaecat.
+    </p>
+    <figure class="float">
+      <img src="adamcatlace.jpg" />
+      <figcaption>
+        The great Sir Adam Catlace was named after Countess Ada Lovelace, the first programmer ever.
+      </figcaption>
+    </figure>
+    <p>We also have some more text here. Et laborum venison nostrud, ut veniam sint kielbasa ullamco pancetta.</p>
+  </div>
+
+  <div style="clear:left">
+    <pre>
+  
+  
+      
+      2. 对figure使用display: inline-block;
+      得到的宽度和我们预期的不一样
+      即使获得了正确的宽度，居中也比较麻烦
+    </pre>
+    <p>Let’s assume we have some text here. Bacon ipsum dolor sit amet turkey veniam shankle, culpa short ribs kevin t-bone
+      occaecat.
+    </p>
+    <figure class="display">
+      <img src="adamcatlace.jpg" />
+      <figcaption>
+        The great Sir Adam Catlace was named after Countess Ada Lovelace, the first programmer ever.
+      </figcaption>
+    </figure>
+    <p>We also have some more text here. Et laborum venison nostrud, ut veniam sint kielbasa ullamco pancetta.</p>
+  </div>
+
+
+  <pre>
+      3.对figure使用固定的width
+      对于不同的图片都需要不同的样式来控制
+    </pre>
+
+  <pre>
+
+
+
+  </pre>
+  <div>
+    <pre>
+  
+
+      解决方案：
+      对figure使用width: min-content;
+      这个属性将解析为这个容器内部最大的不可断行元素的宽度(最宽的单词、图片或具有固定宽度的盒元素)
+      ie和edge不支持，给max-width一个固定值作为回退方案
+      火狐使用width: -moz-min-content;
+      移动端没有问题
+    </pre>
+    <p>Let’s assume we have some text here. Bacon ipsum dolor sit amet turkey veniam shankle, culpa short ribs kevin t-bone
+      occaecat.
+    </p>
+    <figure class="min">
+      <img src="adamcatlace.jpg" />
+      <figcaption>
+        The great Sir Adam Catlace was named after Countess Ada Lovelace, the first programmer ever.
+      </figcaption>
+    </figure>
+    <p>We also have some more text here. Et laborum venison nostrud, ut veniam sint kielbasa ullamco pancetta.</p>
+  </div>
+
+</body>
+
+</html>

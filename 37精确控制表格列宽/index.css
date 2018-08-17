@@ -1,0 +1,24 @@
+.box {
+  width: 700px;
+  border: 1px dashed #aaa;
+}
+table {
+  border-collapse: collapse;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+td {
+  border: 1px solid #aaa;
+}
+
+td.preformatted {
+  white-space: pre;
+  font-family: Consolas, Monaco, monospace;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.fixed table {
+  table-layout: fixed;
+}
