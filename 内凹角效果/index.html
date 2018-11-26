@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+  </head>
+  <body>
+    <div><div class="box"></div></div>
+    <p>使用border-radius和负的margin在角落形成一个圆</p>
+    <div><div class="box radius"></div></div>
+    <p>取消伪类的颜色，扩大box-shadow的阴影扩展半径，覆盖整个容器</p>
+    <div class="box radius shadow"></div>
+    <p>伪类会遮挡内容，使用zIndex修复</p>
+    <div class="box radius shadow">
+      我是内容，我是内容，我是内容，我是内容，我是内容，我是内容，我是内容，我是内容，我是内容，
+    </div>
+    <div class="box radius shadow zIndex">
+      我是内容，我是内容，我是内容，我是内容，我是内容，我是内容，我是内容，我是内容，我是内容，
+    </div>
+
+    <p>动态的圆大小</p>
+    <form>
+      <input id="r" type="range" min="10" value="50" max="80" />
+      <label for="r">--r: <output for="r">50</output></label>
+    </form>
+    <div class="box radius shadow zIndex" id="range">
+      我是内容，我是内容，我是内容，我是内容，我是内容，我是内容，我是内容，我是内容，我是内容，
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>

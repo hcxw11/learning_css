@@ -1,0 +1,46 @@
+:root {
+  --r: 2em;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+body > div {
+  margin: 50px;
+}
+
+.box {
+  position: relative;
+  min-width: 15em;
+  max-width: 15em;
+  min-height: 10em;
+  outline: 2px solid;
+}
+.box::before {
+  content: '';
+  position: absolute;
+  padding: var(--r);
+  box-shadow: 0 0 7px #b53;
+  background: #95a;
+}
+
+.radius {
+  overflow: hidden;
+}
+
+.radius::before {
+  margin: calc(-1 * var(--r));
+  border-radius: 50%;
+}
+
+.shadow::before {
+  background: unset;
+  box-shadow: 0 0 0 300px rgba(153, 85, 170, 0.8);
+}
+
+.zIndex::before {
+  z-index: -1;
+}
