@@ -14,13 +14,4 @@
     <span>hover按钮</span>
   </div>
 </body>
-<script>
-  document.querySelector('.btn').addEventListener('mousemove', function(e) {
-    var x = e.pageX - this.offsetLeft;
-    var y = e.pageY - this.offsetTop;
-
-    this.style.setProperty('--x', `${x}px`);
-    this.style.setProperty('--y', `${y}px`);
-  });
-</script>
 </html>
