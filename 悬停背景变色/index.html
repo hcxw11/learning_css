@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet/less" type="text/css" href="./main.less" />
+  <script src="../js/less.min.js"></script>
+
+</head>
+<body>
+  <div class="btn">
+    <span>这是按钮</span>
+  </div>
+</body>
+<script>
+  document.querySelector('.btn').addEventListener('mousemove', function(e) {
+    var x = e.pageX - this.offsetLeft;
+    var y = e.pageY - this.offsetTop;
+
+    this.style.setProperty('--x', `${x}px`);
+    this.style.setProperty('--y', `${y}px`);
+  });
+</script>
+</html>

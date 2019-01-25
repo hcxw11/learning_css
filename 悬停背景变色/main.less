@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  background: #f72359;;
+  padding: 0;
+  width: 160px;
+  padding:0 18px;
+  line-height: 36px;
+  border-radius: 36px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  span {
+    position: relative;
+  }
+  &:hover::before  {
+    --size: 200px;
+  }
+  &::before {
+    --size: 0;
+    content: '';
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    height: var(--size);
+    width: var(--size);
+    background: radial-gradient(circle closest-side, #4405f7, transparent);
+    transform: translate(-50%, -50%);
+    transition: width .2s ease, height .2s ease;
+  }
+}
