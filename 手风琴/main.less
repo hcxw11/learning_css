@@ -1,0 +1,34 @@
+@count: 5;
+
+body {
+  margin: 0;
+}
+.list {
+  margin: 0;
+  padding: 0;
+  height: 300px;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  .item {
+    list-style: none;
+    transition: width 0.5s;
+    &:not(:hover) {
+      width: 100% / @count;
+    }
+    &:hover{
+      position: relative;
+      width: 400px;
+      &::after {
+        content: '';
+        background: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        left: 0;
+      }
+    }
+  }
+}
+
